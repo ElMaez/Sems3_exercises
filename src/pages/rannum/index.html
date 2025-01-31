@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/3_Semester_smopgaver/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/3_Semester_smopgaver/index.html">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div>
+        <h3>Opgaver</h3>
+        <ul>
+          <li>
+            <a
+              href="https://kea-fronter.itslearning.com/plans/courses/7014/plan/112623/element/1331135?BackDestination=11&BackData=%7B%22BackDestination%22%3A%220%22%2C%22TableViewMode%22%3A%220%22%7D&planner2-sb-collapsed=false"
+            >
+              Opgave: Generér et tilfældigt tal
+            </a>
+          </li>
+          <li>
+            OBS start med at løse pkt 1 & 2, så går vi videre med 3 & 4 senere
+            på ugen
+          </li>
+          <li>
+            1. Lav en funktion der console.logger et tilfældigt tal fra og med 0
+            til og med 100
+          </li>
+          <li>
+            2.Opdater din funktion så den skriver det tilfædige tal til HTML.
+          </li>
+          <li>
+            3.Opdater din funktionen så den kan modtage parameteret “max”. Det
+            tilfældige tal skal så være fra og med 0 til og med “max”
+          </li>
+          <li>
+            4.Opdater din funktion så den også modtager en querySelector som
+            parameter som tallet skal udskrives til
+          </li>
+          <li>
+            Det er ok at tallet bare genereres når siden loader, så et nyt tal
+            fremkommer når du refresher siden!
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a
+              href="https://kea-fronter.itslearning.com/plans/courses/7014/plan/112623/element/1331134?BackDestination=11&BackData=%7B%22BackDestination%22%3A%220%22%2C%22TableViewMode%22%3A%220%22%7D&planner2-sb-collapsed=false"
+              >Opgave: Gæt et tal</a
+            >
+          </li>
+          <li>
+            <p>
+              Lav et program der generer et tilfældigt tal mellem 0 og 100.
+              Brugeren skal herefter gætte tallet ved at taste det ind i et
+              inputfelt og trykke på en knap. Programmet skal herefter give
+              feedback om tallet er for højt, for lavt eller om tallet er
+              gættet. Når tallet bliver gættet skal der være en
+              fejringsgrafik/animation Og husk: Det skal virke Det skal se godt
+              ud Det skal give relevant feedback
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <section id="game">
+          <input type="number" id="guess" />
+          <button>Guess</button>
+          <p id="hint"></p>
+        </section>
+      </div>
+    </main>
+    <footer></footer>
+    <script>
+      const button = document.querySelector("button");
+      const hint = document.querySelector("#hint");
+
+      button.addEventListener("click", guess);
+
+      let tries = 0;
+      let tal = 0;
+      tal = RndNum();
+
+      function guess() {
+        let input = document.querySelector("#guess").value;
+        input = parseInt(input);
+
+        console.log("Inputtet tal: " + input);
+        console.log("Det tal der skal gættes: " + tal);
+        tries++;
+
+        if (tal < input) {
+          hint.textContent =
+            "dit tal er for højt" + " " + "forsøg:" + " " + tries;
+          console.log("for højt");
+        } else if (tal > input) {
+          hint.textContent =
+            "dit tal er for lavt" + " " + "forsøg:" + " " + tries;
+          console.log("for lavt");
+        } else {
+          hint.textContent = "korrekt!" + " " + "forsøg:" + " " + tries;
+          console.log("correct");
+          tal = RndNum();
+        }
+      }
+
+      function RndNum() {
+        tal = Math.floor(Math.random() * 101);
+        console.log("MathRan tallet: " + tal);
+        return tal;
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  p {
+    width: 65ch;
+  }
+  body {
+    margin: auto;
+    width: 90vw;
+  }
+  li {
+    list-style: none;
+    line-height: var(--LineHeight);
+  }
+  ul {
+    margin-top: var(--gap2);
+  }
+  #game {
+    margin-top: var(--gap1);
+  }
+</style>

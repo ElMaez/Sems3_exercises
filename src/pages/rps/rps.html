@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rock, Paper, Scissors</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/3_Semester_smopgaver/index.html">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Rock, Paper, Scissors</h1>
+
+      <div id="gamefield">
+        <div id="player1" class="player"></div>
+        <div id="pc" class="player"></div>
+        <div id="texts">
+          <div id="lose" class="hidden"><h1>You lose</h1></div>
+          <div id="win" class="hidden"><h1>You win</h1></div>
+          <div id="draw" class="hidden"><h1>It's a draw</h1></div>
+        </div>
+      </div>
+
+      <div id="buttons">
+        <button class="rock"></button>
+        <button class="paper"></button>
+        <button class="scissor"></button>
+      </div>
+    </main>
+    <footer></footer>
+    <script>
+      window.addEventListener("load", start);
+      const rock = document.querySelector(".rock");
+      const paper = document.querySelector(".paper");
+      const scissor = document.querySelector(".scissor");
+
+      const player1 = document.querySelector("#player1");
+      const pc = document.querySelector("#pc");
+
+      const lose = document.querySelector("#lose");
+      const win = document.querySelector("#win");
+      const draw = document.querySelector("#draw");
+
+      let playerChoice = null;
+      let pcChoice = null;
+      let i = 0;
+      i++;
+
+      const delay1 = 500;
+      const delay2 = 2000;
+      const delay3 = 2500;
+
+      function start() {
+        console.log("Hello!");
+        rock.addEventListener("click", () => {
+          game("rock");
+        });
+        paper.addEventListener("click", () => {
+          game("paper");
+        });
+        scissor.addEventListener("click", () => {
+          game("scissor");
+        });
+      }
+
+      function game(playerchoice) {
+        playerChoice = playerchoice;
+        math();
+
+        setTimeout(() => {
+          shake();
+        }, i * delay1);
+
+        setTimeout(() => {
+          player1.classList.remove("shake");
+          pc.classList.remove("shake");
+          player1.classList.add(playerChoice);
+          pc.classList.add(pcChoice);
+        }, i * delay2);
+
+        setTimeout(() => {
+          end();
+        }, i * delay3);
+      }
+
+      function end() {
+        if (
+          (pc.classList.contains("rock") &&
+            player1.classList.contains("scissor")) ||
+          (pc.classList.contains("paper") &&
+            player1.classList.contains("rock")) ||
+          (pc.classList.contains("scissor") &&
+            player1.classList.contains("paper"))
+        ) {
+          console.log("YOU LOSE! FUCK YOU!");
+          lose.classList.remove("hidden");
+
+          setTimeout(() => {
+            lose.classList.add("hidden");
+            reset();
+          }, i * delay2);
+        } else if (playerChoice === pcChoice) {
+          console.log("DRAW! you suck");
+          draw.classList.remove("hidden");
+
+          setTimeout(() => {
+            draw.classList.add("hidden");
+            reset();
+          }, i * delay2);
+        } else {
+          console.log("lol you win");
+          win.classList.remove("hidden");
+
+          setTimeout(() => {
+            win.classList.add("hidden");
+            reset();
+          }, i * delay2);
+        }
+      }
+
+      function reset() {
+        player1.classList.remove(playerChoice);
+        pc.classList.remove(pcChoice);
+      }
+
+      // Har en branch med array løsning fra blank her
+      function math() {
+        let tal = Math.floor(Math.random() * 3);
+
+        if (tal == 0) {
+          pcChoice = "rock";
+        } else if (tal == 1) {
+          pcChoice = "paper";
+        } else {
+          pcChoice = "scissor";
+        }
+        console.log(pcChoice + tal);
+      }
+
+      function shake() {
+        player1.classList.add("shake");
+        pc.classList.add("shake");
+      }
+    </script>
+  </body>
+</html>
+<style></style>

@@ -1,0 +1,47 @@
+:root {
+  --LineHeight: 25px;
+
+  --gap05: 0.5rem;
+  --gap1: 1rem;
+  --gap2: 2rem;
+  --gap4: 4rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: auto;
+  width: 90vw;
+}
+nav {
+  margin-top: var(--gap1);
+}
+h2 {
+  margin-top: var(--gap1);
+}
+h3 {
+  margin-top: var(--gap1);
+  margin-bottom: var(--gap05);
+}
+ul {
+  margin-left: var(--gap1);
+}
+li {
+  list-style: none;
+  line-height: var(--LineHeight);
+}
+button {
+  width: 200px;
+  height: 20px;
+  margin-top: var(--gap2);
+}
+.dropdown_hide {
+  display: none;
+  visibility: hidden;
+}
+#drop1 {
+  width: 100vw;
+}
