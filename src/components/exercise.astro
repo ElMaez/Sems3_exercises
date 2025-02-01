@@ -1,0 +1,31 @@
+---
+import'../pages/styles/style.css';
+---
+
+
+
+
+
+<section>
+    <h2>Uge 1</h2>
+      <button id="knap1">D.27.01</button>
+      <div id="drop1" class="dropdown_hide">
+        <h3>Undrevisningsmateriale</h3>
+        <a href=""><h3>Opgave</h3></a>
+      </div>
+</section>
+<script>
+        const knap1 = document.querySelector("#knap1");
+        const drop1 = document.querySelector("#drop1");
+        knap1.addEventListener("click", dropdown1);
+
+        function dropdown1() {
+    if (drop1.classList == "dropdown_hide") {
+    drop1.classList.remove("dropdown_hide");
+    console.log("er removed");
+     } else if (drop1.classList == "") {
+    drop1.classList.add("dropdown_hide");
+    console.log("er tilføjet");
+    }
+    }
+</script>

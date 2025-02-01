@@ -1,0 +1,18 @@
+---
+import'../pages/styles/style.css';
+import exercise from '../components/exercise.astro';
+
+const exerciselist = await fetch (
+'https://bfnwnhbirorahsscayzf.supabase.co/rest/v1/exercises?select=*',
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmbnduaGJpcm9yYWhzc2NheXpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5NzM0MDcsImV4cCI6MjA1MzU0OTQwN30.VsWgUm8O7ZuJGkUuevFguR6T6mi2erVJ0OQ1IglZw64",
+    },
+  }
+)
+---
+
+          
+

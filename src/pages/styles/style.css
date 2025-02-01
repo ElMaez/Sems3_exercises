@@ -33,6 +33,9 @@ li {
   list-style: none;
   line-height: var(--LineHeight);
 }
+p {
+  width: 65ch;
+}
 button {
   width: 200px;
   height: 20px;
