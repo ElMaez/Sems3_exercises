@@ -1,31 +1,37 @@
 ---
-import'../pages/styles/style.css';
+const { exercisedata } = Astro.props;
+const { assignmentslist } = Astro.props;
+import "../pages/styles/style.css";
+
+console.log(exercisedata);
 ---
 
-
-
-
-
 <section>
-    <h2>Uge 1</h2>
-      <button id="knap1">D.27.01</button>
-      <div id="drop1" class="dropdown_hide">
-        <h3>Undrevisningsmateriale</h3>
-        <a href=""><h3>Opgave</h3></a>
-      </div>
+  <button class="knap">{exercisedata.Titel}</button>
+  <div class="drop">
+    <h3>Undrevisningsmateriale</h3>
+    <a href="">{exercisedata.dokumentlink}</a>
+    <p></p>
+  </div>
 </section>
-<script>
-        const knap1 = document.querySelector("#knap1");
-        const drop1 = document.querySelector("#drop1");
-        knap1.addEventListener("click", dropdown1);
 
-        function dropdown1() {
-    if (drop1.classList == "dropdown_hide") {
-    drop1.classList.remove("dropdown_hide");
-    console.log("er removed");
-     } else if (drop1.classList == "") {
-    drop1.classList.add("dropdown_hide");
-    console.log("er tilføjet");
-    }
-    }
+<script>
+  // var knap = document.querySelectorAll("button");
+  // var drop = document.querySelector("div");
+
+  // knap.forEach(function toggle(open) {
+  //   open.addEventListener("click", () => {
+  //     if (drop.classList == "drop dropdown_hide") {
+  //       drop.classList.remove("dropdown_hide");
+  //       console.log("er removed");
+  //     } else if (drop.classList == "drop") {
+  //       drop.classList.add("dropdown_hide");
+  //       console.log("er tilføjet");
+  //     }
+  //   });
+  // });
+
+  // knap.addEventListener("click", dropdown);
+
+  // function dropdown() {}
 </script>

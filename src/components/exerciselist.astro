@@ -1,9 +1,10 @@
 ---
-import'../pages/styles/style.css';
-import exercise from '../components/exercise.astro';
+import "../pages/styles/style.css";
+import exercise from "../components/exercise.astro";
+import Exercise from "../components/exercise.astro";
 
-const exerciselist = await fetch (
-'https://bfnwnhbirorahsscayzf.supabase.co/rest/v1/exercises?select=*',
+const exerciselist = await fetch(
+  "https://bfnwnhbirorahsscayzf.supabase.co/rest/v1/exercises?select=*",
   {
     method: "GET",
     headers: {
@@ -11,8 +12,28 @@ const exerciselist = await fetch (
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmbnduaGJpcm9yYWhzc2NheXpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5NzM0MDcsImV4cCI6MjA1MzU0OTQwN30.VsWgUm8O7ZuJGkUuevFguR6T6mi2erVJ0OQ1IglZw64",
     },
   }
-)
+).then((resexercises) => resexercises.json());
+
+const assignmentslist = await fetch(
+  "https://bfnwnhbirorahsscayzf.supabase.co/rest/v1/Logic_opgaver?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmbnduaGJpcm9yYWhzc2NheXpmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc5NzM0MDcsImV4cCI6MjA1MzU0OTQwN30.VsWgUm8O7ZuJGkUuevFguR6T6mi2erVJ0OQ1IglZw64",
+    },
+  }
+).then((resassignments) => resassignments.json());
 ---
 
-          
+{
+  exerciselist.map((exercises) => {
+    return <Exercise exercisedata={exercises} />;
+  })
+}
 
+{
+  assignmentslist.map((assignments) => {
+    return <Exercise exercisedata={assignments} />;
+  })
+}
