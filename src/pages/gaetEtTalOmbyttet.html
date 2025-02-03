@@ -26,12 +26,42 @@
   const tries = document.querySelector("#start");
   const pcguess = document.querySelector("#pcguess");
 
-  startbt.addEventListener("click", start());
-  // highbt.addEventListener("click", ());
+  startbt.addEventListener("click", game);
   // lowbt.addEventListener("click", ());
   // correctbt.addEventListener("click", ());
 
-  function start() {
-    console.log("Hello");
+  let pcGuess = 50;
+  let nMax = 100;
+  let nMin = 1;
+
+  let maxGuess = Math.max(nMax);
+  let minGuess = Math.min(nMin);
+
+  function game() {
+    pcguess.textContent = pcGuess;
+    console.log(pcGuess);
   }
+
+  highbt.addEventListener("click", () => {
+    console.log("nMin: " + nMin + " " + "nMax: " + nMax);
+    maxGuess = Math.max(nMax);
+    minGuess = Math.min(nMin);
+    pcGuess = Math.floor(Math.random(minGuess) * maxGuess);
+    console.log("Too High: " + nMax);
+
+    return pcGuess;
+  });
+  lowbt.addEventListener("click", () => {
+    console.log("nMin: " + nMin + "nMax: " + nMax);
+    maxGuess = Math.max(nMax);
+    minGuess = Math.min(nMin);
+    pcGuess = Math.floor(Math.random(minGuess) * maxGuess);
+    console.log("Too Low: " + nMin);
+
+    return pcGuess;
+  });
+
+  correctbt.addEventListener("click", () => {
+    console.log("Correct: " + pcGuess);
+  });
 </script>
