@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <p id="tries">Antal forsøg</p>
+      <p id="pcguess">PC Gætte tal</p>
+      <button id="high">For Højt</button>
+      <button id="low">For Lavt</button>
+      <button id="correct">Korrekt</button>
+      <button id="start">Start</button>
+    </main>
+  </body>
+</html>
+
+<script>
+  const startbt = document.querySelector("#start");
+  const highbt = document.querySelector("#high");
+  const lowbt = document.querySelector("#low");
+  const correctbt = document.querySelector("#correct");
+
+  const tries = document.querySelector("#start");
+  const pcguess = document.querySelector("#pcguess");
+
+  startbt.addEventListener("click", start());
+  // highbt.addEventListener("click", ());
+  // lowbt.addEventListener("click", ());
+  // correctbt.addEventListener("click", ());
+
+  function start() {
+    console.log("Hello");
+  }
+</script>
