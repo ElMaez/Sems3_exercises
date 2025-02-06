@@ -37,46 +37,42 @@ const vehicles = [
 //  alle rugbrøds drevne fartøjer med plads til mere end en.
 
 //  Flyt filtreringerne over på 4 knapper der viser de filtreringer der før var hardcodede + 1 knap til at vise alle (ufiltreret)
-const body = document.querySelector("body");
-body.innerHTML += `<button id="allbt">Alle</button>`;
-body.innerHTML += `<button id="rugbt">Fuel</button>`;
-body.innerHTML += `<button id="pasbt">Passengers</button>`;
-body.innerHTML += `<button id="jonasbt">Owned By</button>`;
-body.innerHTML += `<button id="elbt">Electric</button>`;
+// annonym function ()=>{sæt ny function her} detter er en måde at kunne bruge parametre i en addEventListener.
+document.querySelectorAll("button").forEach((btn) => {
+  console.log("btn", btn.dataset.filter);
 
-const Allbt = document.querySelector("#allbt");
+  btn.addEventListener("click", () => {
+    filterHandler(btn.dataset.filter);
+  });
+});
+function filterHandler(filter) {
+  console.log("filterHandler", filter);
+  let filterArr;
+  switch (filter) {
+    case "all":
+      filterArr = vehicles;
+      break;
+    case "isElectric":
+      filterArr = vehicles.filter((vehicles) => vehicles.isElectric === true);
+      break;
+    case "moreThanOnePass":
+      filterArr = vehicles.filter((vehicles) => vehicles.passengers === 2);
+      break;
+    case "jonasOwnedElVeh":
+      filterArr = vehicles.filter(
+        (vehicles) =>
+          vehicles.ownedBy === "Jonas" && vehicles.isElectric === true
+      );
+      break;
+    case "ryebread":
+      filterArr = filter((vehicles) => vehicles.fuel === "Rugbrød");
+      break;
+  }
+  showTheseVehicles(filterArr);
+}
+
 const tbodyPointer = document.querySelector("tbody");
 showTheseVehicles(vehicles);
-
-Allbt.addEventListener("click", () => {
-  showTheseVehicles(vehicles);
-});
-
-const AllIsEl = vehicles.filter((veh) => veh.isElectric === true);
-
-const Elbt = document.querySelector("#elbt");
-Elbt.addEventListener("click", () => {
-  showTheseVehicles(AllIsEl);
-});
-
-const TwoPassengers = vehicles.filter((veh) => veh.passengers === 2);
-
-const Pasbt = document.querySelector("#pasbt");
-Pasbt.addEventListener("click", () => {
-  showTheseVehicles(TwoPassengers);
-});
-
-const Jonas = vehicles.filter((veh) => veh.ownedBy === "Jonas");
-const Jonasbt = document.querySelector("#jonasbt");
-Jonasbt.addEventListener("click", () => {
-  showTheseVehicles(Jonas);
-});
-
-const Rug = vehicles.filter((veh) => veh.fuel === "Rugbrød");
-const Rugbt = document.querySelector("#rugbt");
-Rugbt.addEventListener("click", () => {
-  showTheseVehicles(Rug);
-});
 
 //  Style tabellen endnu mere
 
@@ -86,12 +82,12 @@ function showTheseVehicles(arr) {
   arr.forEach((each) => {
     tbodyPointer.innerHTML += `<tr>
     <td>${each.type}</td>
+    <td>${each.isTandem}</td>
     <td>${each.fuel}</td>
     <td>${each.passengers}</td> 
     <td>${each.stops}</td>
     <td>${each.ownedBy}</td>
     <td>${each.isElectric}</td>
-    <td>${each.isTandem}</td>
     </tr>`;
   });
 
@@ -99,10 +95,42 @@ function showTheseVehicles(arr) {
 
   // Vi vil gerne have fat i hver td, men for at gøre dette  skal tabellen først være lavet
   // + vi skal have selecte den specifikke td
-  const allCells = document.querySelectorAll("td");
-  allCells.forEach((cell) => {
-    if (cell.textContent === "undefined") {
-      cell.textContent = "";
-    }
-  });
+  // document.querySelectorAll("td").allCells.forEach((cell) => {
+  //   if (cell.textContent === "undefined") {
+  //     cell.textContent = "";
+  //   }
+  // });
 }
+// En anden måde at løse opgaven:
+// arr.forEach((each) => {
+//   tbodyPointer.innerHTML += `<tr>
+//   <td>${beautify(each.type)}</td>
+//   <td>${beautify(each.isTandem)}</td>
+//   <td>${beautify(each.fuel)}</td>
+//   <td>${beautify(each.passengers)}</td>
+//   <td>${beautify(each.stops)}</td>
+//   <td>${beautify(each.ownedBy)}</td>
+//   <td>${beautify(each.isElectric)}</td>
+//   </tr>`;
+// function beautify(str) {
+//   if (str === undefined) {
+//     str = "-";
+//   }
+//   if (str === true) {
+//     str = "X";
+//   }
+//   return str;
+// }
+// Metoden med switch
+
+// function beautify(str) {
+// switch(str){
+//   case undefined:
+//     str ="-"
+//     break;
+//     case true:
+//       str ="X";
+//       break;
+// }
+// }
+// });
