@@ -45,6 +45,9 @@ document.querySelectorAll("button").forEach((btn) => {
     filterHandler(btn.dataset.filter);
   });
 });
+
+// comprimeret if sltning, hvis true så return 2 hvis ikke så 10:
+// return isMember === true ? '$2.00' : '$10.00'
 function filterHandler(filter) {
   console.log("filterHandler", filter);
   let filterArr;
@@ -90,6 +93,8 @@ function showTheseVehicles(arr) {
     <td>${each.isElectric}</td>
     </tr>`;
   });
+  // Hvis man ønkser if statement i en linje en ternary: condition ? exprIfTrue : expIfFalse
+  // <td>${each.isTandem ? "X" : "-"}</td>
 
   //  Lav nogle if statements i showTheseVehicles funktionen så tabellen bliver smukkere: uden undefined og tomme felter og true;
 

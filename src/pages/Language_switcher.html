@@ -4,11 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Language Switcher</title>
-    <script type="module" src="js.js"></script>
+    <script type="module" src="/src/pages/languageswitcher/js.js"></script>
   </head>
 
   <body>
-    <header class="header">UDSKIFTES</header>
+    <header class="header">
+      <h1>UDSKIFTES</h1>
+      <div>
+        <label for="local_select">Choose</label>
+
+        <select name="local_select" id="local_select">
+          <option value="">a Language</option>
+          <option value="de">Deutsch</option>
+          <option value="da">Dansk</option>
+        </select>
+      </div>
+    </header>
     <p>Content</p>
     <div class="footer">UDSKIFTES</div>
   </body>

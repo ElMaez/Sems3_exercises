@@ -8,9 +8,23 @@ const texts = {
   },
   da: {
     texts: [
-      { text: "Båden", location: ".header" },
+      { text: "Båden", location: ".header h1" },
       { text: "Robotten", location: ".footer" },
     ],
   },
 };
-const locale = "da";
+
+document
+  .querySelector("#local_select")
+  .addEventListener("change", languageChange);
+
+function languageChange() {
+  locale = document.querySelector("#local_select").value;
+  console.log("TEXTS", texts[locale].texts);
+  texts[locale].texts.forEach((element) => {
+    document.querySelector(element.location).textContent = element.text;
+  });
+}
+let locale = "de";
+
+console.log(texts[locale].texts);
