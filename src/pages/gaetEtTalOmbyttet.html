@@ -27,40 +27,64 @@
   const pcguess = document.querySelector("#pcguess");
 
   startbt.addEventListener("click", game);
+  lowbt.addEventListener("click", low);
+  highbt.addEventListener("click", high);
   // lowbt.addEventListener("click", ());
   // correctbt.addEventListener("click", ());
-
-  let pcGuess = 50;
-  let nMax = 100;
-  let nMin = 1;
-
-  let maxGuess = Math.max(nMax);
-  let minGuess = Math.min(nMin);
+  let pcGuessDefault = 50;
+  let DefaultMaxParameter = 50;
+  let DefaultMinParameter = 0;
 
   function game() {
-    pcguess.textContent = pcGuess;
-    console.log(pcGuess);
+    pcguess.textContent = pcGuessDefault;
+    console.log("pcGuess: ", pcGuessDefault);
   }
 
-  highbt.addEventListener("click", () => {
-    console.log("nMin: " + nMin + " " + "nMax: " + nMax);
-    maxGuess = Math.max(nMax);
-    minGuess = Math.min(nMin);
-    pcGuess = Math.floor(Math.random(minGuess) * maxGuess);
-    console.log("Too High: " + nMax);
+  function high() {
+    Guess = Math.floor(
+      Math.random() * (DefaultMinParameter + DefaultMaxParameter)
+    );
+    console.log(
+      "Guess = " +
+        Guess +
+        " " +
+        "Math.random :" +
+        "DefaultMinParameter : " +
+        DefaultMinParameter +
+        " " +
+        "DefaultMaxParameter : " +
+        DefaultMaxParameter
+    );
 
-    return pcGuess;
-  });
-  lowbt.addEventListener("click", () => {
-    console.log("nMin: " + nMin + "nMax: " + nMax);
-    maxGuess = Math.max(nMax);
-    minGuess = Math.min(nMin);
-    pcGuess = Math.floor(Math.random(minGuess) * maxGuess);
-    console.log("Too Low: " + nMin);
+    DefaultMaxParameter = Guess;
+    console.log("New DefaultMaxParameter : " + DefaultMaxParameter);
 
-    return pcGuess;
-  });
+    return DefaultMaxParameter;
+  }
+  //
 
+  function low() {
+    Guess = Math.floor(
+      Math.random() * (DefaultMinParameter + DefaultMaxParameter)
+    );
+    console.log(
+      "Guess = " +
+        Guess +
+        " " +
+        "Math.random :" +
+        "DefaultMinParameter : " +
+        DefaultMinParameter +
+        " " +
+        "DefaultMaxParameter : " +
+        DefaultMaxParameter
+    );
+
+    DefaultMinParameter = Guess;
+    console.log("New DefaultMinParameter : " + DefaultMinParameter);
+
+    return DefaultMinParameter;
+  }
+  //
   correctbt.addEventListener("click", () => {
     console.log("Correct: " + pcGuess);
   });
