@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/pages/todo/todo.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div id="taskContainer">
+        <section id="tasksList">
+          <button>Add</button>
+          <button>Delete</button>
+          <select name="filter" id="filter">
+            <option value="">Done</option>
+            <option value="">On going</option>
+          </select>
+          <div id="tasksContainer">
+            <div class="note">
+              <input type="checkbox" />
+              <p>Task List</p>
+            </div>
+          </div>
+        </section>
+        <section id="tasksView">
+          <input id="inputTitel" type="text" placeholder="Titel" />
+          <input id="inputDescription" type="text" placeholder="Description" />
+        </section>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="/src/pages/todo/todo.js"></script>
+</html>
