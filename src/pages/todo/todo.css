@@ -1,7 +1,23 @@
+:root {
+  --borderRadius1: 10px;
+  --borderRadius: 5px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+#tasksView,
+#tasksList,
+.note {
+  border: solid 3px #41403e;
+  background: transparent;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius: 15px 255px;
 }
 
 #taskContainer {
@@ -23,8 +39,16 @@ section {
   background-color: blanchedalmond;
   padding: 1rem;
 }
+#btnContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 0.5rem;
+}
 button {
   width: 100px;
+  grid-column: span 1;
+  grid-template-rows: 1/-1;
 }
 
 #tasksContainer {
@@ -36,20 +60,31 @@ button {
   width: 100%;
   height: 50px;
   margin-top: 2rem;
-  outline: dashed 2px rgb(255, 51, 0);
-  border-radius: 10px;
-}
+  padding-top: 0.5rem;
 
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 2fr;
+}
+.checkbox {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.note p {
+  grid-column: 2/-1;
+  grid-row: 1/-1;
+}
 #tasksView {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 6fr;
+  row-gap: 0.5rem;
 }
 #inputTitel {
-  width: 100%;
-  height: 80px;
+  grid-column: 1/-1;
+  grid-row: span 1;
 }
 #inputDescription {
-  width: 100%;
-  height: 100%;
+  grid-column: 1/-1;
+  grid-row: span 1;
 }

@@ -42,7 +42,8 @@
 
   function high() {
     Guess = Math.floor(
-      Math.random() * (DefaultMinParameter + DefaultMaxParameter)
+      Math.random() *
+        (Math.min(DefaultMinParameter), Math.max(DefaultMaxParameter))
     );
     console.log(
       "Guess = " +
@@ -64,25 +65,29 @@
   //
 
   function low() {
-    Guess = Math.floor(
-      Math.random() * (DefaultMinParameter + DefaultMaxParameter)
-    );
-    console.log(
-      "Guess = " +
-        Guess +
-        " " +
-        "Math.random :" +
-        "DefaultMinParameter : " +
-        DefaultMinParameter +
-        " " +
-        "DefaultMaxParameter : " +
-        DefaultMaxParameter
-    );
+    if (DefaultMinParameter === 0) {
+      DefaultMinParameter = Guess;
+      Guess = Math.floor(
+        Math.random() *
+          (Math.min(DefaultMinParameter), Math.max(DefaultMaxParameter))
+      );
+      console.log(
+        "Guess = " +
+          Guess +
+          " " +
+          "Math.random :" +
+          "DefaultMinParameter : " +
+          DefaultMinParameter +
+          " " +
+          "DefaultMaxParameter : " +
+          DefaultMaxParameter
+      );
 
-    DefaultMinParameter = Guess;
-    console.log("New DefaultMinParameter : " + DefaultMinParameter);
+      DefaultMinParameter = Guess;
+      console.log("New DefaultMinParameter : " + DefaultMinParameter);
 
-    return DefaultMinParameter;
+      return DefaultMinParameter;
+    }
   }
   //
   correctbt.addEventListener("click", () => {

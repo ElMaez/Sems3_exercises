@@ -11,3 +11,12 @@
 // sletter en opgave, eller ændrer status for en opgave, skal disse ændringer gemmes i localStorage.
 //  Når brugeren besøger appen igen, skal opgaverne hentes fra localStorage, så de stadig kan se deres opgaveliste,
 // selv efter at de har lukket og genåbnet browseren.
+
+// MVC model: Controller
+// Vi skal kunne tilføje notes.
+// Vi skal kunne ændre dens færdig status.
+// Vi skal kunne slette noten.
+
+// MVC model: Model
+
+// MVC model: View (UI)
