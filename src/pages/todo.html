@@ -14,9 +14,11 @@
           <div id="btnContainer">
             <button id="add">Add</button>
             <button id="delete">Delete</button>
-            <select name="filter" id="filter">
-              <option value="">Done</option>
-              <option value="">On going</option>
+            <button id="done">Done</button>
+            <button id="ongoing">On Going</button>
+            <select onchange="resetPage()" name="filter" id="filter">
+              <option value="done">Done</option>
+              <option value="todo">On going</option>
             </select>
           </div>
           <div id="tasksContainer"></div>
