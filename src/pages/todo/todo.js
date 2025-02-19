@@ -14,19 +14,50 @@ window.addEventListener("load", resetPage);
 // selv efter at de har lukket og genåbnet browseren.
 
 // Global Arrays
+
+// Her definerer vi en class ved navn EntryContainer.
 class EntryContainer {
+  // her definerer vi en contructor
+  // Den laver en ny instans af typen EntryContainer (linje XX),
   constructor() {
+    // jeg difinerer/initialiser propertien ved navn entries
+    // til at være sat til et tomt array.
     this.entries = [];
   }
+
+  // Her definerer vi en method som vi har kaldt 'getEntry' med parametret uuid
   getEntry(uuid) {
+    // vi laver en for loop
+    // først definerer vi en variable 'i' til at være en start værdi på 0
+
+    // vi laver en condition hvor at hvis i er mindre end entries array'ets længde
+    // så kører den for loopet.
+
+    // i slutningen af for loop'et så laver vi en increment operator (++)
+    // som er at højne værdien af vores variable.
+    //(-- er en decrement operator)
+
+    // for loopet stopper når i er højere eller ligmed mængden af objekter der ligger
+    // i entries array'et.
     for (let i = 0; i < this.entries.length; i++) {
+      // vi laver en variabel som er lig med et objekt fået fra array'et,
+      //hvor 'i' definerer hvilken placering i array'et, objektet skal tages fra.
       let entry = this.entries[i];
+
+      // vi har lavet en if statement hvor conditionen er
+      // hvis objektet's uuid er lig med parametret uuid
+
+      // om det der == eller === gør ikke en forskel i
+      // dette tilfælde da vores uuid og entry.uuid begge er typen string.
       if (entry.uuid == uuid) {
+        // når conditionen er mødt så retunerer den objektet.
         return entry;
       }
     }
     console.log("getEntry" + uuid);
   }
+
+  //vi definerer en metode (addEntry)
   addEntry(entry) {
     if (!this.entries.includes(entry)) {
       this.entries.push(entry);
@@ -55,8 +86,13 @@ class EntryContainer {
 let entryContainer = new EntryContainer();
 
 let arr = [];
+
+// Laver en class Entry indeholder
+// en constructor som laver en instance af typen (navnet vi har givet et sted)
+// med følgende parametre (uuid, content, titel, state)
 class Entry {
   constructor(uuid, content, titel, state) {
+    // her instancierer vi properties med parametrene
     this.uuid = uuid;
     this.content = content;
     this.titel = titel;
@@ -77,14 +113,19 @@ document.querySelector("#delete").addEventListener("click", remove);
 function controller() {
   let titel = document.querySelector("#inputTitel").value;
   let inputDescription = document.querySelector("#inputDescription").value;
-  let uuid = self.crypto.randomUUID();
   let state = document.getElementById("filter").value;
 
-  console.log(uuid);
+  // Jeg defineret en variabel som gemmer resultatet af metode kaldet randomUUID.
+  let uuid = self.crypto.randomUUID();
 
+  // Her definerer jeg en varibel som krearer/instansierer et nyt objekt
+  // af typen Entry som er en Class der indeholder en constructor der modtager
+  // parametre og gemmer den information i properties.
   let entry = new Entry(uuid, inputDescription, titel, state);
+
   entryContainer.addEntry(entry);
 
+  console.log(uuid);
   console.log("Hello World : " + entry.uuid);
   console.log(entryContainer);
   InsertToHtml(entry);
