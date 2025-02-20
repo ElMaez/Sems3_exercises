@@ -42,6 +42,11 @@ class EntryContainer {
       }
     }
     console.log("getEntry" + uuid);
+
+    // Hvis arrayet er gået igennem og ikke kan finde mit uuid så giver den undefined
+    // dette ville derfor ikke kunne blive brugt i resten af featuresne
+    // En måde at løse dette ville være efter for loopet at lave en default visning
+    // f.eks. en tom note elle en note der sagde 'error 404'
   }
 
   //vi definerer en metode (addEntry)
