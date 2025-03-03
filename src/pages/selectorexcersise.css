@@ -1,0 +1,43 @@
+/* selector pseudo exercise */
+/* https://kea-fronter.itslearning.com/ContentArea/ContentArea.aspx?LocationID=7014&LocationType=1 */
+
+/* p = “Vælg alle p-elementer”
+p.vigtig = “Vælg alle p-elementer, som har klassen ‘vigtig’”
+Forsæt selv herunder...
+section p = alle p elementer i sections
+
+section > h2 = alle h2 der er children af section
+
+main > * =  alle child elementer af main.
+
+article * =  alle elementer i articles
+
+h2 + p =  et p element ved siden af en h2
+
+ul > li + li = vælger en li der er direkte ved siden af en li som er barn af ul
+
+* + * =  alle elementer ved siden af alle elementer
+
+.column :last-child = huh
+
+li:nth-of-type(3) = li som er nr 3 af typen
+
+a :hover = huh
+
+p ~ p = p element efter et p element
+
+button:is(:hover, :focus-visible) = 
+
+section > p:not(:first-of-type, :last-child) = 
+
+:is(ul, ol) > li + li = 
+
+ul[class] > :first-child = 
+
+:nth-last-child(1 of .a) = 
+
+div:has(img) = 
+
+a {
+  &:hover {...}
+} =  */
